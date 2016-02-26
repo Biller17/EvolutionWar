@@ -33,7 +33,7 @@ public class attack : MonoBehaviour {
 			if (unitEnemy.civ != unitPlayer.civ) 
 			{
 				wait (unitPlayer.vel_atk);
-				unitEnemy.hp -= unitPlayer.atk + currentEnemyDefense;
+				unitEnemy.hp = unitEnemy.hp + currentEnemyDefense - unitPlayer.atk;
 			}
 		} 
 	}
