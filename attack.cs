@@ -4,52 +4,46 @@ using System.Collections;
 public class attack : MonoBehaviour {
 	public unit unitPlayer;
 	public unit unitEnemy;
-	public int isEnemy;
-	public string enemyName;
-	public string enemyType;
-
-
+	public float currentEnemyDefense; // dependiendo si es cavalry, melee o range
 	void Start () {
 		GameObject player = GameObject.Find ("unit");
 		unitPlayer = player.GetComponent<unit> ();
 	}
 
 
-	void OnCollisionEnter (Collision col) //on collision stay
+	void OnTriggerStay (Collider col)
 	{
 		if (col.gameObject.name.Contains ("unit")) {
 			GameObject enemy = col.gameObject;
 			unitEnemy = enemy.GetComponent<unit> ();
-			if (unitEnemy.civ != unitPlayer.civ) {
-				isEnemy = 1;
-				enemyName = unitEnemy.transform.name;
-				enemyType = unitEnemy.transform.tag;
+
+			switch(unitPlayer.tag)
+			{
+			case "melee":
+				currentEnemyDefense = unitEnemy.def_melee;
+				break;
+			case "range":
+				currentEnemyDefense = unitEnemy.def_range;
+				break;
+			case "cavalry":
+				currentEnemyDefense = unitEnemy.def_cavalry;
+				break;
+			}
+
+			if (unitEnemy.civ != unitPlayer.civ) 
+			{
+				wait (unitPlayer.vel_atk);
+				unitEnemy.hp -= unitPlayer.atk + currentEnemyDefense;
 			}
 		} 
 	}
 
-	void OnTriggerEnter (Collider col)
-	{
-		
-	}
-
 	// Update is called once per frame
 	void Update () 
-	{
-		if (isEnemy == 1) {
-			GameObject enemy = GameObject.Find(enemyName);
-			unitEnemy = enemy.GetComponent<unit> ();
-
-		}
-		Debug.Log (unitPlayer.atk);
-		Debug.Log (unitEnemy.atk);
-		StartCoroutine(wait(unitPlayer.vel_atk));
-		unitEnemy.hp = -unitPlayer.atk;
-	} 
+	{} 
 
 	IEnumerator wait(float delay)
 	{
 		yield return new WaitForSeconds (delay);
 	}
-
 }
