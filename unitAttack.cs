@@ -46,7 +46,7 @@ public class unitAttack : MonoBehaviour {
 	void Update () 
 	{} 
 
-	IEnumerator attackPlayer(float delay, unit player, unit enemy)
+	IEnumerator attackPlayer(float delay, unitVariables player, unitVariables enemy)
 	{
 		attacking = true;
 		enemy.hp = enemy.hp+currentEnemyDefense - player.atk;
