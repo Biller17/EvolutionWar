@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class unit : MonoBehaviour {
+public class unitVariables : MonoBehaviour {
 	public float atk, atk_range, view_range;
 	public float def_melee, def_cavalry, def_range;
 	public float vel_walk, vel_atk;
@@ -54,8 +54,9 @@ public class unit : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (hp == 0) {
+		if (hp < 0) {
 			Destroy(this.gameObject);
+			Debug.Log("Enemigo destruido");
 			//agregar animacion de muerte de unidad
 		}
 
