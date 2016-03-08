@@ -7,6 +7,7 @@ public class unitAttack : MonoBehaviour {
 	private float currentEnemyDefense; // dependiendo si es cavalry, melee o range
 	private Transform player;
 	private bool attacking;
+	private Vector3 dist;
 
 	void Start () {
 		player = GetComponent<Transform> ();
@@ -17,35 +18,40 @@ public class unitAttack : MonoBehaviour {
 
 	void OnTriggerStay (Collider col)
 	{
-		if (col.gameObject.name.Contains ("unit") && !attacking) {
-			GameObject enemy = col.gameObject;
-			unitEnemy = enemy.GetComponent<unitVariables> ();
-
-			switch(player.name)
-			{
-			case "melee":
-				currentEnemyDefense = unitEnemy.def_melee;
-				break;
-			case "range":
-				currentEnemyDefense = unitEnemy.def_range;
-				break;
-			case "cavalry":
-				currentEnemyDefense = unitEnemy.def_cavalry;
-				break;
-			}
-
-			if (unitEnemy.civ != unitPlayer.civ) 
-			{	
-				StartCoroutine(attackPlayer (unitPlayer.vel_atk, unitPlayer, unitEnemy));
-				Debug.Log (unitEnemy.hp);
-			}
+		dist = this.gameObject.transform.position;
+		if (Vector3.Distance (col.ClosestPointOnBounds(col.transform.position), dist) > unitPlayer.atk_range) 
+		{
+			//movimiento blablabal
 		} 
+		else 
+		{
+			if (col.gameObject.name.Contains ("unit") && !attacking) {
+				GameObject enemy = col.gameObject;
+				unitEnemy = enemy.GetComponent<unitVariables> ();
+
+				switch (player.name) {
+				case "melee":
+					currentEnemyDefense = unitEnemy.def_melee;
+					break;
+				case "range":
+					currentEnemyDefense = unitEnemy.def_range;
+					break;
+				case "cavalry":
+					currentEnemyDefense = unitEnemy.def_cavalry;
+					break;
+				}
+				if (unitEnemy.civ != unitPlayer.civ) {	
+					StartCoroutine (attackPlayer (unitPlayer.vel_atk, unitPlayer, unitEnemy));
+					Debug.Log (unitEnemy.hp);
+				}
+			} 
+		}
 	}
 
 
 	void Update () 
-	{} 
-
+	{
+	} 
 	IEnumerator attackPlayer(float delay, unitVariables player, unitVariables enemy)
 	{
 		attacking = true;

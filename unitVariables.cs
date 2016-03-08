@@ -7,7 +7,7 @@ public class unitVariables : MonoBehaviour {
 	public float vel_walk, vel_atk;
 	public float hp;
 	public string civ;
-	
+	public SphereCollider attackCol;
 	
 	// Use this for initialization
 	void Start () {
@@ -21,7 +21,13 @@ public class unitVariables : MonoBehaviour {
 			def_range = 1.2f;
 			def_cavalry = 0.5f;
 			vel_walk = 1.0f;
+
+
 			vel_atk = 2.0f;
+			attackCol = this.gameObject.AddComponent<SphereCollider> ();
+			attackCol.center = Vector3.zero;
+			attackCol.radius = view_range;
+			attackCol.isTrigger = true;
 		}
 		if (this.gameObject.tag == "range") {
 			Debug.Log ("atributos range asignados");
@@ -34,6 +40,10 @@ public class unitVariables : MonoBehaviour {
 			def_cavalry = 1.0f;
 			vel_walk = 2.0f;
 			vel_atk = 3.0f;
+			attackCol = this.gameObject.AddComponent<SphereCollider> ();
+			attackCol.center = Vector3.zero;
+			attackCol.radius = view_range;
+			attackCol.isTrigger = true;
 
 		}
 		if (this.gameObject.tag == "cavalry") {
@@ -47,11 +57,12 @@ public class unitVariables : MonoBehaviour {
 			def_cavalry = 1.0f;
 			vel_walk = 4.0f;
 			vel_atk = 2.0f;
+			attackCol = this.gameObject.AddComponent<SphereCollider> ();
+			attackCol.center = Vector3.zero;
+			attackCol.radius = view_range;
+			attackCol.isTrigger = true;
 		}
-
-
 	}
-	// Update is called once per frame
 	void Update () {
 
 		if (hp < 0) {
