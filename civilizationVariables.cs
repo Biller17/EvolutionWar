@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class civilizationVariables : MonoBehaviour {
@@ -9,7 +9,7 @@ public class civilizationVariables : MonoBehaviour {
 	public float melee_vel_walk, melee_vel_atk, ranged_vel_walk, ranged_vel_atk, cavalry_vel_walk, cavalry_vel_atk;
 	public float melee_mant_mat, melee_mant_food, ranged_mant_mat, ranged_mant_food, cavalry_mant_mat, cavalry_mant_food;
 	public float melee_cost_mat, melee_cost_food, melee_cost_gold, ranged_cost_mat, ranged_cost_food, ranged_cost_gold, cavalry_cost_mat, cavalry_cost_food, cavalry_cost_gold;
-	public int materials, food, gold, evolutionCost, habitants, population;
+	public int materials, food, gold, evolutionCost, idleWorkers, workers, population;
 	public float mat_rate, food_rate, gold_rate, evolutionPoints;
 
 	// Use this for initialization
@@ -74,7 +74,8 @@ public class civilizationVariables : MonoBehaviour {
 		gold = 0;
 		evolutionPoints = 0f;
 		evolutionCost = 1;
-		habitants = 0;
+		idleWorkers = 0;
+		workers = 0;
 		population = 0;
 
 		// Rates of production
