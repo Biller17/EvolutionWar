@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class controlBinds : MonoBehaviour {
-    public KeyCode camFw, camBw, camRt, camLf, mouse0, mouse1, pause;
+	public KeyCode camFw, camBw, camRt, camLf, mouse0, mouse1, pause1, pause2;
+	public KeyCode configMenu, buildingMenu, upgradeMenu, unitMenu;
 
     void Start() {
         camFw = KeyCode.UpArrow;
@@ -11,7 +12,12 @@ public class controlBinds : MonoBehaviour {
         camLf = KeyCode.LeftArrow;
         mouse0 = KeyCode.Mouse0;
         mouse1 = KeyCode.Mouse1;
-        pause = KeyCode.P;
+		pause1 = KeyCode.P;
+        pause2 = KeyCode.Escape;
+		configMenu = KeyCode.M;
+		buildingMenu = KeyCode.B;
+		upgradeMenu = KeyCode.U;
+		unitMenu = KeyCode.S;
     }
 
     public void setCamFw(KeyCode newBind) { camFw = newBind; }
@@ -20,5 +26,10 @@ public class controlBinds : MonoBehaviour {
     public void setCamLf(KeyCode newBind) { camLf = newBind; }
     public void setMouse0(KeyCode newBind) { mouse0 = newBind; }
     public void setMouse1(KeyCode newBind) { mouse1 = newBind; }
-    public void setPause(KeyCode newBind) { pause = newBind; }
+	public void setPause1(KeyCode newBind) { pause1 = newBind; }
+	public void setPause2(KeyCode newBind) { pause2= newBind; }
+	public void setConfigMenu(KeyCode newBind) { configMenu = newBind; }
+	public void setBuildingMenu(KeyCode newBind) { buildingMenu = newBind; }
+	public void setUpgradeMenu(KeyCode newBind) { upgradeMenu = newBind; }
+	public void setUnitMenu(KeyCode newBind) { unitMenu = newBind; }
 }
