@@ -21,13 +21,13 @@ public class spawnUnit : MonoBehaviour {
 		case "classic":
 			civVars.gold -= 10;
 			civVars.food -= 2;
-			GameObject meleeC = Instantiate(Resources.Load("unit.melee.classic")) as GameObject; 
+			GameObject meleeC = Instantiate(Resources.Load("unit.egypt.melee.classic.")) as GameObject; 
 			Instantiate (meleeC, transform.position = Vector3.zero , Quaternion.identity);
 			break;
 		case "medieval":
 			civVars.gold -= 20;
 			civVars.food -= 4;
-			GameObject meleeM = Instantiate(Resources.Load("unit.melee.medieval")) as GameObject; 
+			GameObject meleeM = Instantiate(Resources.Load("unit.egypt.melee.medieval")) as GameObject; 
 			Instantiate (meleeM, transform.position = Vector3.zero , Quaternion.identity);
 			break;
 
@@ -41,14 +41,14 @@ public class spawnUnit : MonoBehaviour {
 			civVars.gold -= 10;
 			civVars.food -= 2;
 			civVars.materials -= 4;
-			GameObject rangeC = Instantiate (Resources.Load ("unit.range.classic")) as GameObject; 
+			GameObject rangeC = Instantiate (Resources.Load ("unit.egypt.range.classic")) as GameObject; 
 			Instantiate (rangeC, transform.position = Vector3.zero, Quaternion.identity);
 			break;
 		case "medieval":
 			civVars.gold -= 20;
 			civVars.food -= 4;
 			civVars.materials -= 10;
-			GameObject rangeM = Instantiate (Resources.Load ("unit.range.medieval")) as GameObject; 
+			GameObject rangeM = Instantiate (Resources.Load ("unit.egypt.range.medieval")) as GameObject; 
 			Instantiate (rangeM, transform.position = Vector3.zero, Quaternion.identity);
 			break;	
 		}
@@ -61,14 +61,14 @@ public class spawnUnit : MonoBehaviour {
 			civVars.gold -= 20;
 			civVars.food -= 5;
 			civVars.materials -= 5;
-			GameObject cavalryC = Instantiate (Resources.Load ("unit.cavalry.classic")) as GameObject; 
+			GameObject cavalryC = Instantiate (Resources.Load ("unit.egypt.cavalry.classic")) as GameObject; 
 			Instantiate (cavalryC, transform.position = Vector3.zero, Quaternion.identity);
 			break;
 		case "medieval":
 			civVars.gold -= 50;
 			civVars.food -= 10;
 			civVars.materials -= 5;
-			GameObject cavalryM = Instantiate (Resources.Load ("unit.cavalry.medieval")) as GameObject; 
+			GameObject cavalryM = Instantiate (Resources.Load ("unit.egypt.cavalry.medieval")) as GameObject; 
 			Instantiate (cavalryM, transform.position = Vector3.zero, Quaternion.identity);
 			break;	
 		}
