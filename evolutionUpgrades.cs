@@ -21,7 +21,9 @@ public class evolutionUpgrades : MonoBehaviour {
 
 	void unlockHouses(){
 		// Unlock house lvl1
-		civVars.habitants += 10;
+		civVars.population += 10;
+		civVars.workers += 10;
+		civVars.idleWorkers += 10;
 	} 
 
 	void unlockForest(){

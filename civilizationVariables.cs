@@ -1,8 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class civilizationVariables : MonoBehaviour {
-	public string civ;
+	public string civ, era;
 	public float melee_atk, ranged_atk, cavalry_atk;
 	public float melee_atk_range, melee_view_range, ranged_atk_range, ranged_view_range, cavalry_atk_range, cavalry_view_range;
 	public float melee_def_melee, melee_def_ranged, melee_def_cavalry, ranged_def_melee, ranged_def_ranged, ranged_def_cavalry, cavalry_def_melee, cavalry_def_ranged, cavalry_def_cavalry;
@@ -10,7 +10,7 @@ public class civilizationVariables : MonoBehaviour {
 	public float melee_mant_mat, melee_mant_food, ranged_mant_mat, ranged_mant_food, cavalry_mant_mat, cavalry_mant_food;
 	public float melee_cost_mat, melee_cost_food, melee_cost_gold, ranged_cost_mat, ranged_cost_food, ranged_cost_gold, cavalry_cost_mat, cavalry_cost_food, cavalry_cost_gold;
 	public int materials, food, gold, evolutionCost, idleWorkers, workers, population;
-	public float mat_rate, food_rate, gold_rate, evolutionPoints;
+	public float mat_rate, food_rate, gold_rate, evolutionPoints_rate, evolutionPoints;
 
 	// Use this for initialization
 	void Start () {
@@ -82,6 +82,7 @@ public class civilizationVariables : MonoBehaviour {
 		mat_rate = 1f;
 		food_rate = 1f;
 		gold_rate = 1f;
+		evolutionPoints_rate = 1f;
 	}
 
 	public void assignVariables(string unitType, float atk, float atk_range, float view_range, float def_melee, float def_ranged, float def_cavalry, float vel_walk, float vel_atk, float gold_cost, float food_cost, float mat_cost, float mant_food, float mant_mat) {
