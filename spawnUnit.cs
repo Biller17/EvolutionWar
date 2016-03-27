@@ -12,11 +12,9 @@ public class spawnUnit : MonoBehaviour {
 
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
-	
-	
+	void Update () {}
+
+
 	void spawnMelee()
 	{
 		switch (civVars.era) {
