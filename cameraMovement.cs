@@ -13,8 +13,8 @@ public class cameraMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (Input.GetKey(controls.camFw)) { cam.Translate(cam.up * Time.deltaTime * 5); }
-	    if (Input.GetKey(controls.camBw)) { cam.Translate(-cam.up* Time.deltaTime * 5); }
+	    if (Input.GetKey(controls.camFw)) { cam.Translate(Vector3.forward * Time.deltaTime * 5, Space.World); }
+		if (Input.GetKey(controls.camBw)) { cam.Translate(Vector3.back * Time.deltaTime * 5, Space.World); }
 	    if (Input.GetKey(controls.camLf)) { cam.Translate(Vector3.left * Time.deltaTime * 5); }
 	    if (Input.GetKey(controls.camRt)) { cam.Translate(Vector3.right * Time.deltaTime * 5); }
     }
